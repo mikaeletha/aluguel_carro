@@ -20,8 +20,7 @@
                 {{-- route('clients.create') --}}
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Funcionários</a>
-                {{-- route('clients.create') --}}
+                <a class="nav-link" href="{{ route('index_employees') }}">Funcionários</a>
             </li>
         </ul>
     </div>

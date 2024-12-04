@@ -14,8 +14,21 @@ class ClientController extends Controller
      */
     public function index()
     {
-        $clients = Client::orderBy('name', 'desc')->paginate(10);
-        return view('clients.index', compact('clients'));
+        $clients = Client::orderBy('name', 'asc')->paginate(10);
+
+        return view('shared.list', [
+            'title' => 'Lista de Clientes',
+            'buttonText' => 'Cadastrar Cliente',
+            'route' => route('create_client'),
+            'items' => $clients,
+            'columns' => [
+                'name' => 'Nome',
+                'email' => 'Email',
+                'phone' => 'Telefone',
+                'birth_date' => 'Data de Aniversário',
+                'driver_license_number' => 'Número da Licença',
+            ],
+        ]);
     }
 
     /**
